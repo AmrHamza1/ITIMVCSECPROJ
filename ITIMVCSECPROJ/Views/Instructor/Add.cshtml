@@ -1,0 +1,42 @@
+﻿@model AddInsWithCrsDeptVM
+@{
+    ViewData["Title"] = "Add";
+
+    SelectList deptOptions = new SelectList(Model.Departments, "Id", "Name");
+    SelectList crsOptions = new SelectList(Model.Courses, "Id", "Name");
+}
+
+<h1>Add Instructor</h1>
+
+<form method="post" asp-controller="Instructor" asp-action="Add">
+    <div class="form-control">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div class="form-control">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" />
+    </div>
+    <div class="form-control">
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" />
+    </div>
+    <div class="form-control">
+        <label asp-for="Image"></label>
+        <input asp-for="Image" type="file"  />
+    </div>
+    <div class="form-control">
+        <select asp-for="DepartmentId" asp-items="deptOptions">
+            <option value="0">--Select a department--</option>
+        </select>
+    </div>
+    <div class="form-control">
+        <select asp-for="CourseId" asp-items="crsOptions">
+            <option value="0">--Select a course--</option>
+        </select>
+    </div>
+    <div class="form-control">
+        <input type="submit" value="Add instructor" class="btn btn-secondary" />
+    </div>
+</form>
+

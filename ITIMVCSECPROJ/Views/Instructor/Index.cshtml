@@ -1,0 +1,39 @@
+﻿@model List<Instructor> 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form method="get" action="/Instructor/Search">
+    <div class="form-group">
+        <input type="text" name="name" class="form-control" placeholder="Search by name" />
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </div>
+</form>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Salary</th>
+            <th>Department</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var instructor in Model)
+        {
+            <tr>
+                <td>@instructor.Name</td>
+                <td>@instructor.Address</td>
+                <td>@instructor.Salary</td>
+                <td>@instructor.Department</td>
+                <td>
+                    <a href="/Instructor/Details/@instructor.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

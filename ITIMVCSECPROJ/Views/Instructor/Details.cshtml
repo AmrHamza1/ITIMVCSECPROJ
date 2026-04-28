@@ -1,0 +1,11 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<img src="/assets/@Model.ImageUrl" alt="Instructor Image" class="img-thumbnail mb-3" style="max-width: 200px;" />
+<p><strong>Name:</strong> @Model.Name</p>
+<p><strong>Address:</strong> @Model.Address</p>
+<p><strong>Salary:</strong> @Model.Salary</p>
+<p><strong>Department:</strong> @Model.Department.Name</p>
