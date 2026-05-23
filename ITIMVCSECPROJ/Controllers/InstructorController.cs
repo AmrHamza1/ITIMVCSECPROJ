@@ -40,8 +40,8 @@ namespace ITIMVCSECPROJ.Controllers
         {
             AddInsWithCrsDeptVM ViewModel = new AddInsWithCrsDeptVM
             {
-                Departments = _departmentBL.GetDepartments(),
-                Courses = _courseBL.GetCourses()
+                Departments = _departmentBL.GetAllDepartments(),
+                Courses = _courseBL.GetAllCourses()
             };
             return View(ViewModel);
         }
@@ -62,8 +62,8 @@ namespace ITIMVCSECPROJ.Controllers
                 _instructorBL.AddInstructor(i);
                 return RedirectToAction("Index");
             }
-            newinstructor.Departments = _departmentBL.GetDepartments();
-            newinstructor.Courses = _courseBL.GetCourses();
+            newinstructor.Departments = _departmentBL.GetAllDepartments();
+            //newinstructor.Courses = _courseBL.GetCourses();
             return View(newinstructor);
         }
     }

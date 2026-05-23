@@ -1,4 +1,6 @@
-﻿namespace ITIMVCSECPROJ.Models
+﻿using ITIMVCSECPROJ.ViewModels.DepartmentViewModel;
+
+namespace ITIMVCSECPROJ.Models
 {
     public class DepartmentBL
     {
@@ -7,9 +9,16 @@
         {
             _context = context;
         }
-        public List<Department> GetDepartments()
+        public List<DepartmentVM> GetAllDepartments()
         {
-            var departments = _context.Departments.Where(d => d.IsDeleted == false).ToList();
+            var departments = _context.Departments
+                .Where(d => d.IsDeleted == false)
+                .Select(d => new DepartmentVM
+                {
+                    DeptId = d.Id,
+                    DeptName = d.Name
+                })
+                .ToList();
             return departments;
         }
         public List<Department> GetDepartmentsVM(int page,int pageSize)

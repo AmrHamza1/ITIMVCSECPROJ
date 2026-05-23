@@ -1,0 +1,99 @@
+﻿@model ITIMVCSECPROJ.ViewModels.CourseViewModel.CourseDetailedVM
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow border-0">
+
+                <!-- Header -->
+                <div class="card-header bg-dark text-white">
+                    <h3 class="mb-0">
+                        Course Details
+                    </h3>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body">
+
+                    <div class="mb-4">
+                        <label class="fw-bold text-secondary">
+                            Course Name
+                        </label>
+
+                        <div class="form-control bg-light">
+                            @Model.CourseName
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="fw-bold text-secondary">
+                            Course Hours
+                        </label>
+
+                        <div class="form-control bg-light">
+                            @Model.CourseHours
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="fw-bold text-secondary">
+                            Max Degree
+                        </label>
+
+                        <div class="form-control bg-light">
+                            @Model.CourseMaxDegree
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="fw-bold text-secondary">
+                            Min Degree
+                        </label>
+
+                        <div class="form-control bg-light">
+                            @Model.CourseMinDegree
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="fw-bold text-secondary">
+                            Department
+                        </label>
+
+                        <div class="form-control bg-light">
+                            @Model.DepartmentName
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer d-flex justify-content-between">
+
+                    <a asp-action="Index"
+                       class="btn btn-secondary">
+                        Back
+                    </a>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@ViewBag.Id"
+                       class="btn btn-warning">
+                        Edit
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
